@@ -168,6 +168,22 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 ```
+This will create (or overwrite) the file requirements.txt with your package list
+```bash
+cat > requirements.txt <<EOF
+torch>=1.9.0
+transformers>=4.15.0
+datasets>=1.18.0
+pandas>=1.3.0
+numpy>=1.21.0
+nltk>=3.6.0
+spacy>=3.2.0
+scikit-learn>=1.0.0
+Pillow>=8.4.0
+opencv-python>=4.5.0
+tensorflow>=2.6.0
+EOF
+```
 
 ### 2. Download ML Models and Data
 ```bash
