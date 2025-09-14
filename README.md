@@ -97,21 +97,23 @@ cp .env.example .env
 # API_KEY=your-super-secret-key-here
 # DEFAULT_MODEL=bert-base-uncased
 
-🚀 Quick Start
+## 🚀 Quick Start
 Running the API Server
-bash
+```bash
 # Start the FastAPI server with hot reload
 uvicorn app.api:app --reload --host 0.0.0.0 --port 8000
+```
+
 Once running, access the interactive documentation:
 
 Swagger UI: http://localhost:8000/docs
 
 ReDoc: http://localhost:8000/redoc
 
-Using the API
+## Using the API
 Example using curl to summarize text:
 
-bash
+```bash
 curl -X 'POST' \
   'http://localhost:8000/summarize' \
   -H 'X-API-Key: your-super-secret-key-here' \
@@ -121,24 +123,29 @@ curl -X 'POST' \
   "max_length": 50,
   "min_length": 20
 }'
-📚 API Endpoints
+```
+
+## 📚 API Endpoints
 Endpoint	Method	Description	Authentication
 /health	GET	System health check	None
 /classify	POST	Classify technical text	API Key
 /summarize	POST	Summarize long documents	API Key
 /generate	POST	Generate text from a prompt	API Key
 /extract	POST	Extract entities and keywords	API Key
-🐳 Docker Deployment
+
+## 🐳 Docker Deployment
 Build the Image
-bash
+```bash
 docker build -t ml-nlp-framework .
+```
 Run the Container
-bash
+```bash
 docker run -d -p 8000:8000 --name ml-api \
   -e API_KEY="your-production-key" \
   -e DEFAULT_MODEL="t5-small" \
   ml-nlp-framework
-👥 Collaboration Guide
+```
+## 👥 Collaboration Guide
 This framework is built for collaboration between ML engineers and technical writers.
 
 For ML Engineers:
@@ -166,11 +173,12 @@ ML engineers implement a new TutorialGenerator service and expose it via a new /
 
 The endpoint is integrated into the company's content management system.
 
-🔧 Development
+## 🔧 Development
 Running Tests
-bash
+```bash
 # Run the test suite
 pytest tests/
+```
 Adding a New Model/Service
 Add core model logic in core/models.py
 
@@ -185,13 +193,14 @@ Write tests in tests/
 Data Processing Pipeline
 The framework supports a full ML workflow:
 
-python
+```python
 # 1. Data Collection (Customize for your sources)
 # 2. Preprocessing (scripts/preprocess_data.py)
 # 3. Annotation (Collaborate with technical writers)
 # 4. Model Training (scripts/train_model.py)
 # 5. Evaluation & Integration (services/, app/api.py)
-🚧 Future Enhancements
+```
+## 🚧 Future Enhancements
 Model fine-tuning pipelines
 
 Advanced monitoring (Prometheus/Grafana)
@@ -204,7 +213,7 @@ Support for more file formats (PDF, DOCX)
 
 Model versioning and A/B testing endpoints
 
-📊 Model Performance
+## 📊 Model Performance
 Continuous improvement of model accuracy is a core goal:
 
 Track metrics via the /health endpoint
@@ -215,7 +224,7 @@ Use feedback loops from technical writers to identify areas for improvement
 
 Stay current with latest Hugging Face and SOTA models
 
-🤝 Contributing
+## 🤝 Contributing
 Fork the repository
 
 Create a feature branch (git checkout -b feature/amazing-feature)
@@ -226,8 +235,8 @@ Push to the branch (git push origin feature/amazing-feature)
 
 Open a Pull Request
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-🆘 Support
+## 🆘 Support
 For support, please open an issue in the GitHub repository or contact the development team.
