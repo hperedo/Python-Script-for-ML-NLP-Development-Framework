@@ -26,6 +26,7 @@ A comprehensive, production-ready framework for Machine Learning (ML) and Natura
   - Custom Exception Handling.
 
 ## 📁 Project Structure
+```text
 ml_nlp_framework/
 │
 ├── app/ # FastAPI Application Layer (The Voice)
@@ -76,8 +77,9 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
-2. Download ML Models and Data
-bash
+
+### 2. Download ML Models and Data
+```bash
 # Download spaCy English model
 python -m spacy download en_core_web_sm
 
