@@ -36,34 +36,29 @@ Think of the project in two main parts:
 
 ### Development Workflow with Oxygen AI
 
-The framework is developed using Oxygen AI as a code-generation assistant in the development process:
+Use this project structure and Python scripts with Oxygen XML Editor in the development process. They are complementary technologies that solve different problems and can be integrated into a powerful workflow:
 
 ```mermaid
 flowchart TD
-    subgraph Developer [Developer Commands]
-        A[Dev defines task<br>e.g., &quot;Create summarization endpoint&quot;]
-        B[Dev writes detailed prompt<br>with specifications]
-        C[Dev refines & integrates<br>generated code]
+    subgraph ML [ML/API Automation Layer Python Framework]
+        A[FastAPI ML Services<br>Summarization, Classification]
+        B[Batch Processing Scripts<br>Data extraction, transformation]
+        C[Model Training &<br>Optimization]
     end
 
-    subgraph OxygenAI [Oxygen AI Code Generation]
-        D[Processes Natural Language Prompt]
-        E[Generates Boilerplate Code<br>FastAPI Endpoints, Pydantic Models, etc.]
+    subgraph XML [Content Authoring Layer Oxygen XML]
+        D[Oxygen XML Editor<br>Content creation & management]
+        E[Structured Content<br>DITA, DocBook, TEI]
+        F[Publication Engine<br>PDF, HTML, EPUB output]
     end
 
-    subgraph FastAPIFramework [Resulting FastAPI Framework]
-        F[app/api.py<br>RESTful Endpoints]
-        G[app/models.py<br>Pydantic Request/Response Schemas]
-        H[core/models.py<br>ML/NLP Model Classes]
-        I[services/*.py<br>Business Logic Services]
-        J[Other Files<br>config, deps, tests, docker]
-    end
-
-    A -- "Defines Requirement" --> B
-    B -- "Detailed Prompt" --> OxygenAI
-    D -- "Natural Language Processing" --> E
-    E -- "Generated Code Suggestion" --> C
-    C -- "Review, Edit & Integrate" --> FastAPIFramework
+    A -- "Provides automation services<br>for content processing" --> D
+    D -- "Provides structured data<br>for training & analysis" --> C
+    
+    B -- "Converts XML content to<br>training datasets" --> C
+    E -- "Exports content for<br>ML processing" --> A
+    
+    C -- "Improves services<br>based on content patterns" --> A
 
     style Developer fill:#e1f5fe
     style OxygenAI fill:#fff3e0
