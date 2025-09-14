@@ -56,7 +56,7 @@ ml_nlp_framework/
 ├── requirements.txt # Python dependencies
 ├── Dockerfile # Containerization setup
 └── .env.example # Environment variables template
-
+```
 
 
 ## 🛠️ Installation & Setup
