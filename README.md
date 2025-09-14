@@ -99,7 +99,7 @@ cp .env.example .env
 
 ## 🚀 Quick Start
 
-###Running the API Server
+### Running the API Server
 
 ```bash
 # Start the FastAPI server with hot reload
