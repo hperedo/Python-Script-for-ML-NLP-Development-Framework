@@ -98,7 +98,9 @@ cp .env.example .env
 # DEFAULT_MODEL=bert-base-uncased
 
 ## 🚀 Quick Start
-Running the API Server
+
+###Running the API Server
+
 ```bash
 # Start the FastAPI server with hot reload
 uvicorn app.api:app --reload --host 0.0.0.0 --port 8000
