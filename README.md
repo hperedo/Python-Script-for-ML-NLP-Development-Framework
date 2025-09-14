@@ -2,6 +2,13 @@
 Python Script for ML/NLP Development Framework
 A comprehensive, production-ready framework for Machine Learning (ML) and Natural Language Processing (NLP) tasks. This modular system is specifically designed to support technical document authoring through classification, summarization, generation, and information extraction, all accessible via a robust FastAPI interface.
 
+## The Big Picture: Why This Combination is Powerful
+Think of the project in two main parts:
+
+1. The ML/NLP Engine (The Brain): This is the modular Python script we started. It contains all the classes and functions for training, processing, and predicting. You develop this in Jupyter notebooks or Python scripts.
+
+2. The API Layer (The Voice): This is what allows other applications (a web app, a mobile app, another service) to talk to your "Brain". They can't use the Python classes directly. They need to send a request (e.g., an HTTP POST request with some text) and get a response (e.g., a JSON object with the summary).
+
 ## 🚀 Features
 
 - **🤖 Core ML/NLP Capabilities:**
