@@ -240,6 +240,19 @@ ml_nlp_framework/
 │ ├── preprocess_data.py # Data preprocessing and annotation
 │ └── test_model.py # CLI for testing models
 │
+├── integrations/
+│   ├── oxygen/
+│   │   ├── plugin/                 # Java plugin for Oxygen
+│   │   ├── scripts/                # Transformation scripts
+│   │   └── config/                 # Configuration templates
+│   └── other_tools/                # Other potential integrations
+│
+├── scripts/
+│   ├── xml_processing.py           # XML-specific processing utilities
+│   └── oxygen_integration.py       # Oxygen-specific helpers
+│
+└── docs/
+│    └── oxygen_integration_guide.md # How to integrate with Oxygen
 ├── tests/ # Unit and Integration Tests
 ├── requirements.txt # Python dependencies
 ├── Dockerfile # Containerization setup
