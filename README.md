@@ -60,9 +60,6 @@ flowchart TD
     
     C -- "Improves services<br>based on content patterns" --> A
 
-    style Developer fill:#e1f5fe
-    style OxygenAI fill:#fff3e0
-    style FastAPIFramework fill:#f3e5f5
 ```
 ## Runtime Integration Architecture
 The framework follows a clean, layered architecture during runtime:
