@@ -165,11 +165,8 @@ cd ml_nlp_framework
 python -m venv venv
 source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements.txt
-```
-This will create (or overwrite) the file requirements.txt with your package list
-```bash
+# This will create (or overwrite) the file requirements.txt with your package list
+
 cat > requirements.txt <<EOF
 torch>=1.9.0
 transformers>=4.15.0
@@ -183,6 +180,9 @@ Pillow>=8.4.0
 opencv-python>=4.5.0
 tensorflow>=2.6.0
 EOF
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
 ### 2. Download ML Models and Data
