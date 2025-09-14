@@ -58,6 +58,58 @@ flowchart TD
     E -- "Generated Code Suggestion" --> C
     C -- "Review, Edit & Integrate" --> FastAPIFramework
 ```
+## Runtime Integration Architecture
+The framework follows a clean, layered architecture during runtime:
+
+```mermaid
+flowchart TD
+    subgraph Client [Client Layer]
+        A[Web Application<br>Mobile App<br>Other Microservice] --> B[HTTP Request<br>POST /summarize<br>Body: JSON, Header: API Key]
+        B --> C[HTTP Response<br>JSON: summary, status, metrics]
+    end
+
+    subgraph Server [FastAPI Server Layer]
+        D[API Gateway<br>FastAPI App]
+        E[Auth Middleware<br>Verify API Key]
+        F[Request Validation<br>Pydantic Models]
+        G[Routing<br>Endpoint Functions]
+        
+        D --> E
+        E --> F
+        F --> G
+    end
+
+    subgraph Service [Business Logic Layer]
+        H[Service Orchestrator<br>e.g., SummarizationService]
+        I[Preprocessing<br>Text cleaning, normalization]
+    end
+
+    subgraph Core [Core ML Engine Layer]
+        J[ML Model Hub<br>e.g., T5, BERT, GPT-2]
+        K[Inference Engine<br>PyTorch/TensorFlow]
+    end
+
+    subgraph Support [Supporting Layers]
+        L[Configuration<br>Settings, Model Paths, API Keys]
+        M[Monitoring<br>Logging, Metrics, Health Checks]
+    end
+
+    G -- "Calls Service" --> H
+    H -- "Preprocesses Input" --> I
+    I -- "Sends to Model" --> J
+    J -- "Uses Engine" --> K
+    K -- "Returns Result" --> J
+    J -- "Returns Prediction" --> H
+    H -- "Formats Response" --> G
+    
+    L -- "Configures" --> D
+    L -- "Configures" --> J
+    D -- "Logs Request" --> M
+    J -- "Logs Inference" --> M
+
+    B -- "Request" --> D
+    G -- "JSON Response" --> C
+```
 
 ## 📁 Project Structure
 ```text
