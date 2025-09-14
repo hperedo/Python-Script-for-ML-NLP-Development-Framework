@@ -126,14 +126,14 @@ curl -X 'POST' \
 ```
 
 ## 📚 API Endpoints
-```table
-Endpoint	Method	Description	Authentication
-/health	GET	System health check	None
-/classify	POST	Classify technical text	API Key
-/summarize	POST	Summarize long documents	API Key
-/generate	POST	Generate text from a prompt	API Key
-/extract	POST	Extract entities and keywords	API Key
-```
+| Endpoint    | Method | Description                  | Authentication |
+|-------------|--------|------------------------------|----------------|
+| `/health`   | GET    | System health check          | None           |
+| `/classify` | POST   | Classify technical text      | API Key        |
+| `/summarize`| POST   | Summarize long documents     | API Key        |
+| `/generate` | POST   | Generate text from a prompt  | API Key        |
+| `/extract`  | POST   | Extract entities and keywords| API Key        |
+
 ## 🐳 Docker Deployment
 Build the Image
 ```bash
