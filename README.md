@@ -96,7 +96,7 @@ cp .env.example .env
 # Edit .env with your settings
 # API_KEY=your-super-secret-key-here
 # DEFAULT_MODEL=bert-base-uncased
-
+```
 ## 🚀 Quick Start
 
 ### Running the API Server
