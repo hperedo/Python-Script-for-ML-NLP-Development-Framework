@@ -1,6 +1,6 @@
 # Python-Script-for-ML-NLP-Development-Framework
 Python Script for ML/NLP Development Framework
-A comprehensive, production-ready framework for Machine Learning (ML) and Natural Language Processing (NLP) tasks. This modular system is specifically designed to support technical document authoring through classification, summarization, generation, and information extraction, all accessible via a robust FastAPI interface.
+A comprehensive, production-ready framework for Machine Learning (ML) and Natural Language Processing (NLP) tasks. This modular system is specifically designed to support technical document authoring through classification, summarization, generation, and information extraction in Oxygen, all accessible via a robust FastAPI interface.
 
 ## The Big Picture: Why This Combination is Powerful
 Think of the project in two main parts:
