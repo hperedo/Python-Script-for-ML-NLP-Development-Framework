@@ -166,7 +166,7 @@ This framework is built for collaboration between ML engineers and technical wri
 3. ML engineers implement a new `TutorialGenerator` service and expose it via a new `/generate_tutorial` endpoint.  
 4. The endpoint is integrated into the company's content management system.  
 
-### 🔧 Development
+## 🔧 Development
 Running Tests
 ```bash
 # Run the test suite
