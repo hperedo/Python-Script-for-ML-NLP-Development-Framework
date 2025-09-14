@@ -166,7 +166,7 @@ This framework is built for collaboration between ML engineers and technical wri
 3. ML engineers implement a new `TutorialGenerator` service and expose it via a new `/generate_tutorial` endpoint.  
 4. The endpoint is integrated into the company's content management system.  
 
-## 🔧 Development
+### 🔧 Development
 Running Tests
 ```bash
 # Run the test suite
@@ -174,11 +174,11 @@ pytest tests/
 ```
 ### Adding a New Model/Service
 
-# 1. Add core model logic in core/models.py
-# 2. Create a service in services/
-# 3. Define request/response schemas in app/models.py
-# 4. Add an API endpoint in app/api.py
-# 5. Write tests in tests/
+ 1. Add core model logic in core/models.py
+ 2. Create a service in services/
+ 3. Define request/response schemas in app/models.py
+ 4. Add an API endpoint in app/api.py
+ 5. Write tests in tests/
 
 ### Data Processing Pipeline
 The framework supports a full ML workflow:
