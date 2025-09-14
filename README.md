@@ -149,30 +149,22 @@ docker run -d -p 8000:8000 --name ml-api \
 ## 👥 Collaboration Guide
 This framework is built for collaboration between ML engineers and technical writers.
 
-For ML Engineers:
-Extend Core Models: Add new models by extending classes in core/models.py.
+### For ML Engineers
+1. **Extend Core Models**: Add new models by extending classes in `core/models.py`.  
+2. **Create New Services**: Add business logic in `services/`.  
+3. **Add New Endpoints**: Expose new capabilities in `app/api.py`.  
+4. **Optimize Models**: Use the `optimize_model` method or add training scripts in `scripts/`.  
 
-Create New Services: Add business logic in services/.
+### For Technical Writers
+1. **Test API Endpoints**: Use the interactive Swagger UI at `/docs` to test features.  
+2. **Provide Feedback**: Report challenges and requirements for new features.  
+3. **Define Use Cases**: Collaborate on defining the input/output schemas in `app/models.py`.  
 
-Add New Endpoints: Expose new capabilities in app/api.py.
-
-Optimize Models: Use the optimize_model method or add training scripts in scripts/.
-
-For Technical Writers:
-Test API Endpoints: Use the interactive Swagger UI at /docs to test features.
-
-Provide Feedback: Report challenges and requirements for new features.
-
-Define Use Cases: Collaborate on defining the input/output schemas in app/models.py.
-
-Example Workflow:
-Technical writers identify a need for automatic tutorial generation.
-
-Teams collaborate to define the required input (outline, keywords) and output (formatted text).
-
-ML engineers implement a new TutorialGenerator service and expose it via a new /generate_tutorial endpoint.
-
-The endpoint is integrated into the company's content management system.
+### Example Workflow
+1. Technical writers identify a need for automatic tutorial generation.  
+2. Teams collaborate to define the required **input** (outline, keywords) and **output** (formatted text).  
+3. ML engineers implement a new `TutorialGenerator` service and expose it via a new `/generate_tutorial` endpoint.  
+4. The endpoint is integrated into the company's content management system.  
 
 ## 🔧 Development
 Running Tests
