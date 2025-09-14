@@ -25,6 +25,40 @@ A comprehensive, production-ready framework for Machine Learning (ML) and Natura
   - Structured Logging and Health Checks.
   - Custom Exception Handling.
 
+## 🏗️ Architecture Overview
+
+### Development Workflow with Oxygen AI
+
+The framework is developed using Oxygen AI as a code-generation assistant in the development process:
+
+```mermaid
+flowchart TD
+    subgraph Developer [Developer Commands]
+        A[Dev defines task<br>e.g., &quot;Create summarization endpoint&quot;]
+        B[Dev writes detailed prompt<br>with specifications]
+        C[Dev refines & integrates<br>generated code]
+    end
+
+    subgraph OxygenAI [Oxygen AI Code Generation]
+        D[Processes Natural Language Prompt]
+        E[Generates Boilerplate Code<br>FastAPI Endpoints, Pydantic Models, etc.]
+    end
+
+    subgraph FastAPIFramework [Resulting FastAPI Framework]
+        F[app/api.py<br>RESTful Endpoints]
+        G[app/models.py<br>Pydantic Request/Response Schemas]
+        H[core/models.py<br>ML/NLP Model Classes]
+        I[services/*.py<br>Business Logic Services]
+        J[Other Files<br>config, deps, tests, docker]
+    end
+
+    A -- "Defines Requirement" --> B
+    B -- "Detailed Prompt" --> OxygenAI
+    D -- "Natural Language Processing" --> E
+    E -- "Generated Code Suggestion" --> C
+    C -- "Review, Edit & Integrate" --> FastAPIFramework
+```
+
 ## 📁 Project Structure
 ```text
 ml_nlp_framework/
