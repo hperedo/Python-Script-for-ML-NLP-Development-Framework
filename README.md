@@ -126,7 +126,7 @@ curl -X 'POST' \
 ```
 
 ## 📚 API Endpoints
-```text
+```table
 Endpoint	Method	Description	Authentication
 /health	GET	System health check	None
 /classify	POST	Classify technical text	API Key
