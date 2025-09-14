@@ -77,6 +77,7 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
 ### 2. Download ML Models and Data
 ```bash
@@ -85,14 +86,17 @@ python -m spacy download en_core_web_sm
 
 # Download NLTK data
 python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
-3. Configure Environment
-bash
+```
+
+### 3. Configure Environment
+```bash
 # Copy the example environment file
 cp .env.example .env
 
 # Edit .env with your settings
 # API_KEY=your-super-secret-key-here
 # DEFAULT_MODEL=bert-base-uncased
+
 🚀 Quick Start
 Running the API Server
 bash
