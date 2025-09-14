@@ -172,18 +172,15 @@ Running Tests
 # Run the test suite
 pytest tests/
 ```
-Adding a New Model/Service
-Add core model logic in core/models.py
+### Adding a New Model/Service
 
-Create a service in services/
+# 1. Add core model logic in core/models.py
+# 2. Create a service in services/
+# 3. Define request/response schemas in app/models.py
+# 4. Add an API endpoint in app/api.py
+# 5. Write tests in tests/
 
-Define request/response schemas in app/models.py
-
-Add an API endpoint in app/api.py
-
-Write tests in tests/
-
-Data Processing Pipeline
+### Data Processing Pipeline
 The framework supports a full ML workflow:
 
 ```python
