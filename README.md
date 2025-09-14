@@ -194,22 +194,22 @@ Use Oxygen to generate a standard, maintainable project structure.
 
 ### For the specific bullet points, FastAPI is not just a good idea; it's the enabling technology.
 
-   - "Integrate AI solutions into existing or new applications": This is the definition of an API. FastAPI is the cleanest, fastest, and most modern way to do this in Python.
+   - **"Integrate AI solutions into existing or new applications"**: This is the definition of an API. FastAPI is the cleanest, fastest, and most modern way to do this in Python.
 
-   - "Collaborate with technical writers / software development team": FastAPI's automatic interactive documentation (/docs) is a game-changer for collaboration. Your non-ML colleagues can instantly see how to use your models, what parameters to send, and what to expect back. They don't need to understand Python.
+   - **"Collaborate with technical writers / software development team"**: FastAPI's automatic interactive documentation (/docs) is a game-changer for collaboration. Your non-ML colleagues can instantly see how to use your models, what parameters to send, and what to expect back. They don't need to understand Python.
 
-   - "Maintain robust and scalable solutions": FastAPI is built on ASGI (Asynchronous Server Gateway Interface), which makes it very efficient and scalable. It's designed for modern production environments.
+   - **"Maintain robust and scalable solutions"**: FastAPI is built on ASGI (Asynchronous Server Gateway Interface), which makes it very efficient and scalable. It's designed for modern production environments.
 
-   - "Communicate technical findings, challenges, and progress": A live, working API endpoint is the most powerful demonstration of progress. Instead of showing a Jupyter notebook, you can give your PM a URL to test the text summarizer themselves.
+   - **"Communicate technical findings, challenges, and progress"**: A live, working API endpoint is the most powerful demonstration of progress. Instead of showing a Jupyter notebook, you can give your PM a URL to test the text summarizer themselves.
 
 ### Final Workflow with Oxygen
-1. Design: Plan your module or endpoint.
+1. **Design**: Plan your module or endpoint.
 
-2. Prompt: Ask Oxygen to generate the boilerplate code (class structure, FastAPI endpoint, Pydantic model, test).
+2. **Prompt**: Ask Oxygen to generate the boilerplate code (class structure, FastAPI endpoint, Pydantic model, test).
 
-3. Implement: Fill in the core logic, connect the pieces, and debug.
+3. **Implement**: Fill in the core logic, connect the pieces, and debug.
 
-4. Iterate: Refine your prompts and code until it works perfectly.
+4. **Iterate**: Refine your prompts and code until it works perfectly.
 
 This combination of a modular core powered by Oxygen and a clean, modern API powered by FastAPI will create a professional, scalable, and collaborative ML platform that directly addresses all the requirements.
 
