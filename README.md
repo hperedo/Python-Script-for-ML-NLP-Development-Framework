@@ -113,13 +113,35 @@ flowchart TD
     B -- "Request" --> D
     G -- "JSON Response" --> C
 ```
-## Step-by-Step Plan to Implement with Oxygen and FastAPI
-Here is a phased approach. You can use Oxygen to help accelerate almost every step, from generating boilerplate code to documentation.
+## Step-by-Step Plan to Implement with Oxygen XML and FastAPI
+Here is a phased approach. You can use Oxygen XML to help accelerate almost every step, from generating boilerplate code to documentation.
+
+### Phase 0: Requirements Analysis with Oxygen XML
+**Goal**: Leverage Oxygen XML to formalize and manage project requirements in a structured format, ensuring clear collaboration between technical writers and developers.
+
+1. **Create a Structured Requirements Document**:
+
+    - **Action**: Use Oxygen XML to author a DITA (Darwin Information Typing Architecture) map and topics.
+    - **Purpose**: Create a single source of truth for project specs, use cases, and acceptance criteria. This is living documentation that technical writers can update as requirements evolve.
+    - **Example Files**:
+       - `docs/requirements/requirements.ditamap` (The map file that organizes the topics)
+       - `docs/requirements/use_cases_classification.dita`
+       - `docs/requirements/use_cases_summarization.dita`
+       - `docs/requirements/data_schema.dita` (Defines expected input/output structures)
+
+2. **Generate Development Artifacts**:
+
+    - **Action**: Use Oxygen XML's transformation scenarios to generate documents from the DITA source.
+    - **Purpose**: Automatically create PDFs for stakeholder review and, crucially, generate machine-readable JSON or XML files that can be used to guide development and even seed test cases.
+    - **Output**:
+      - `requirements.pdf` (For human review)
+      - `requirements.json` (For automated processing - e.g., a list of all defined API endpoints and their expected parameters)
 
 ### Phase 1: Project Foundation & Core ML/NLP Module (The Brain)
-**Goal**: Solidify the core functionality without the API.
+**Goal**: Solidify the core functionality, using the structured requirements from Phase 0..
 
 1. **Project Structure:**
+**Action**: Create the standard Python project structure. The `docs/requirements/` directory will now contain the Oxygen XML DITA files.
 Use Oxygen to generate a standard, maintainable project structure.
 
 2. **Develop the Core Modules:**
@@ -128,23 +150,56 @@ Use Oxygen to generate a standard, maintainable project structure.
 - Do this for each task: `TextClassifier, TextGenerator, InformationExtractor.`
 - **Key Improvement**: Make your `MLNLPFramework` class more modular. Instead of one big class, have separate smaller classes for each task. This is easier to test and maintain.
 - Use Oxygen to generate docstrings, type hints, and unit tests for these classes.
+- **Prompt for AI (e.g., GitHub Copilot, Claude)**: "Generate a Python class `TextSummarizer` using the `transformers` library. It should have methods `load_model(model_name: str), summarize(text: str, max_length: int, min_length: int)` and handle errors. The method should return a string."
+
+- **New Integration Step**: Use the `data_schema.dita` file from Phase 0 to ensure the input/output of your core classes matches the agreed-upon specifications with technical writers.
 
 3. **Data Preprocessing & Training Scripts:**
 
 - Use Oxygen to generate robust data loading and preprocessing functions (e.g., handling different file formats: CSV, JSON, PDF text extraction).
 - Create standalone scripts in `scripts/` for training. This separates the training code from the application code.
+- **New Integration Step**: Write scripts that can parse and extract training data from XML documentation authored in Oxygen. This creates a direct pipeline from technical content to ML model improvement.
+- **Example**:
+```python
+# scripts/preprocess_xml_data.py
+import xml.etree.ElementTree as ET
 
+def extract_training_data_from_dita(dita_file_path):
+    """Parse DITA XML files from Oxygen to create training data for classification models."""
+    tree = ET.parse(dita_file_path)
+    root = tree.getroot()
+    training_examples = []
+
+    # Extract content and its inherent structure as labels
+    for topic in root.findall('.//topic'):
+        title = topic.find('title').text
+        content = ' '.join([p.text for p in topic.findall('.//p') if p.text])
+        # Use the topic type or other metadata as a label
+        label = topic.get('type', 'general')
+        training_examples.append({'text': f"{title} {content}", 'label': label})
+
+    return training_examples
+```
 ### Phase 2: API Layer with FastAPI (The Voice)
-**Goal**: Expose the core modules as a web service that your development team can use.
+
+**Goal**: Expose the core modules as a web service. Use the requirements from Phase 0 to ensure the API contract is correct. Expose the core modules as a web service that your development team can use.
 
 4. **Set Up FastAPI Application:**
 
 - `pip install fastapi uvicorn` (add to `requirements.txt`)
-- **Prompt for Oxygen**: "Generate a basic FastAPI application in a file `app/api.py` with a root endpoint that returns `{"message": "Hello World"}`."
+- **Prompt for FASTAPI**: "Generate a basic FastAPI application in a file `app/api.py` with a root endpoint that returns `{"message": "Hello World"}`."
 - Create Pydantic models in `app/models.py` to define the structure of requests and responses. This is crucial for automatic documentation and validation.
-- **Prompt for Oxygen**: "Generate a Pydantic model `SummaryRequest` with a required field `text: str` and optional fields `max_length: int` and `min_length: int` with sensible defaults."
+- **Prompt for Oxygen XML**: "Generate a Pydantic model `SummaryRequest` with a required field `text: str` and optional fields `max_length: int` and `min_length: int` with sensible defaults."
+- **Validation**: Cross-reference the generated Pydantic model with the `data_schema.dita` file to ensure consistency.
 
 5. **Create API Endpoints:**
+
+    1. **Prompt for AI**: "Generate a FastAPI POST endpoint `/summarize` that uses the `SummaryRequest` model. It should use API key authentication, call a SummarizationService, handle exceptions, and return a JSON response with the summary and original length."
+
+    2. **Oxygen XML Integration**: The finalized API endpoints and their specifications should be documented back into the DITA project in Oxygen. This keeps the technical documentation in sync with the code.
+    3.  **Build an Oxygen XML Plugin (Optional but Powerful)**:
+        - Action: Develop a small Java plugin for Oxygen that allows technical writers to select text in their XML editor and send it directly to your local running FastAPI `/summarize` endpoint, displaying the result in a side panel.
+        - Benefit: Provides immediate value to technical writers during the development phase and gathers early feedback.
 
 - Create an endpoint for each service. For example:
 
