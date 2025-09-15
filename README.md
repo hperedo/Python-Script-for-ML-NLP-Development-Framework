@@ -229,7 +229,7 @@ def extract_training_data_from_dita(dita_file_path):
    - **Action**: Containerize the FastAPI application.
    - **New Consideration**: The Docker setup could also include a web server to host the final, published HTML documentation generated from the Oxygen XML DITA project, serving both the API and its documentation from the same container or cluster.
 
-8 **Advanced FastAPI Features:**
+8. **Advanced FastAPI Features:**
 - **New Integration Step**: Implement a dedicated API endpoint specifically designed to process XML content.
    - **Endpoint**: POST `/xml/process`
    - **Input**: Raw XML string, processing type (e.g., "summarize", "extract_keywords")
