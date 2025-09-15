@@ -221,8 +221,8 @@ def extract_training_data_from_dita(dita_file_path):
 
 ### Phase 3: Production Readiness & Integration
 **Goal**: Prepare the system for deployment and smooth integration into the technical writers' workflow.
-7. **Containerization (Docker):**
 
+7. **Containerization (Docker):**
    - **Absolutely necessary for integration**. Use Oxygen to generate a `Dockerfile`.
    - **Prompt**: "Generate a Dockerfile for a FastAPI application. It should use a Python slim image, copy the `requirements.txt` file, install dependencies, and run the app with Uvicorn."
    - This allows your team to build and run your ML service anywhere.
